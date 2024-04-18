@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Delivery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de pedidos</h1>
+        <form id="deliveryForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="packages">Numero de paquetes (1-10):</label>
+            <input type="number" id="packages" name="packages" min="1" max="10" required>
+            
+            <p>Selecciona el tipo de envio:</p>
+            <input type="radio" id="inPerson" name="deliveryType" value="In-Person" required>
+            <label for="inPerson">Entrega</label><br>
+            <input type="radio" id="delivery" name="deliveryType" value="Delivery">
+            <label for="delivery">Envio</label><br>
+            
+            <button type="submit">Registrar</button>
+        </form>
+        <button onclick="exportData()">Exportar Registros</button>
+        <button id="clearData">Borrar historial</button>
+
+        <div id="historyBox">
+            <h2>Historial</h2>
+            <ul id="historyList"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
