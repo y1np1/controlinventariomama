@@ -2,35 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Simple Delivery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de paquetes</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>Registro de pedidos</h1>
-        <form id="deliveryForm">
+        <h1>Registro de paquetes</h1>
+        <form id="entryForm">
             <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="packages">Numero de paquetes (1-10):</label>
-            <input type="number" id="packages" name="packages" min="1" max="10" required>
-            
-            <p>Selecciona el tipo de envio:</p>
-            <input type="radio" id="inPerson" name="deliveryType" value="In-Person" required>
-            <label for="inPerson">Entrega</label><br>
-            <input type="radio" id="delivery" name="deliveryType" value="Delivery">
-            <label for="delivery">Envio</label><br>
-            
-            <button type="submit">Registrar</button>
-        </form>
-        <button onclick="exportData()">Exportar Registros</button>
-        <button id="clearData">Borrar historial</button>
+            <input type="text" id="name" required>
 
-        <div id="historyBox">
-            <h2>Historial</h2>
-            <ul id="historyList"></ul>
-        </div>
+            <label for="packages">Numero de paquetes:</label>
+            <input type="number" id="packages" required>
+
+            <label for="deliveryType">Tipo de entrega:</label>
+            <select id="deliveryType" required>
+                <option value="agency">Envio por Agencia</option>
+                <option value="inPerson">Delivery</option>
+            </select>
+
+            <button type="submit">Registrar</button>
+            <button type="button" id="clearButton">Limpiar Historial</button>
+        </form>
+        <h2>Historial de registro</h2>
+        <ul id="historyList"></ul>
+        <button onclick="exportData()">Exportar Registros</button>
     </div>
+    <div id="successNotification" class="notification">
+        <i class="fas fa-check-circle"></i> Registro realizado!
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
